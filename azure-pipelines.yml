@@ -18,7 +18,6 @@ steps:
   inputs:
     command: 'install'
 - script: |
-    npm init
-    npm install
+    npm ci
     npm run build
   displayName: 'npm install and build'
