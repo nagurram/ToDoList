@@ -19,5 +19,6 @@ steps:
     npm install -g typescript
     npm install -g @angular/cli    
     npm install --only=dev
-    
+    cd ToDoApp
+    ng build --prod
   displayName: 'npm install and build'
