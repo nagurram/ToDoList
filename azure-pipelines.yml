@@ -19,5 +19,5 @@ steps:
     npm --version
     npm install express
     npm init -y
-    npm run build
+    npm run build-prod
   displayName: 'npm install and build'
