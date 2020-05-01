@@ -15,10 +15,6 @@ steps:
     versionSpec: '10.17.0'
     checkLatest: true
   displayName: 'Install Node.js'
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: '/ToDoApp/'
 - script: |
     npm ci
     npm run build
