@@ -19,6 +19,6 @@ steps:
     command: 'install'
 - script: |
     npm init
-    npm install debug
+    npm install
     npm run build
   displayName: 'npm install and build'
