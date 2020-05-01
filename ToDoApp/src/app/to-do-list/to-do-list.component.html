@@ -1,29 +1,72 @@
-<div class="row top-buffer">
-    <div class="col-md-9"></div>
-    <div class="col-md-3">
+<div *ngIf='showfull' class="container">
+
+    <div class="row top-buffer">
+        <div class="col-md-3"><label for="txtTitile">Titile</label></div>
+        <div class="col-md-9">
+            <input type="text" id="txtTitile" class="form-control" [(ngModel)]="todomodel.Titile" />
+
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-md-3">
+            <label for="txtDescription">Description</label>
+        </div>
+        <div class="col-md-9">
+            <textarea rows="4" id="txtDescription" [(ngModel)]="todomodel.Description" class="form-control"
+                style="min-width: 100%"></textarea>
+
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-md-3">
+            <label for="txtDate">Date</label>
+        </div>
+        <div class="col-md-9">
+            <input type="text" id="txtDate" autocomplete="off" class="form-control" [(ngModel)]="todomodel.actionDate">
+
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+            <button type="button" (click)="CancelItem()" class="btn btn-warning"> Cancel</button>
+            &nbsp;&nbsp;
+            <button type="submit" (click)="saveItem()" class="btn btn-primary"> Save</button>
+        </div>
     </div>
 </div>
-<div class='table-responsive  top-buffer'>
-    <table class="table table-striped table-bordered" *ngIf='todolist && todolist.length'>
-        <thead>
-            <tr>
-                <th>TodoId</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Action date</th>
-                <th>IsActive</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let tkt of todolist">
-                <td>
-                    {{tkt.TodoId}}
-                </td>
-                <td>{{tkt.Titile}}</td>
-                <td>{{tkt.Description}}</td>
-                <td>{{tkt.actionDate|date: 'dd/MM/yyyy'}}</td>
-                <td><input type="checkbox" [checked]="tkt.IsActive" disabled="disabled" /> </td>
-            </tr>
-        </tbody>
-    </table>
+<div *ngIf='!showfull'>
+    <div class="row top-buffer">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <button (click)="openAddtodoModal( )" class="btn btn-primary pull-right"> Add New item</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class='table-responsive  top-buffer'>
+            <table class="table table-striped table-bordered" *ngIf='todolist && todolist.length'>
+                <thead>
+                    <tr>
+                        <th>TodoId</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Action date</th>
+                        <th>IsActive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tkt of todolist">
+                        <td>
+                            {{tkt.TodoId}}
+                        </td>
+                        <td>{{tkt.Titile}}</td>
+                        <td>{{tkt.Description}}</td>
+                        <td>{{tkt.actionDate|date: 'dd/MM/yyyy'}}</td>
+                        <td><input type="checkbox" [checked]="tkt.IsActive" disabled="disabled" /> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
