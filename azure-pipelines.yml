@@ -16,8 +16,6 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm --version
-    npm install express
-    npm init -y
+    npm install -g @angular/cli
     npm run build-prod
   displayName: 'npm install and build'
