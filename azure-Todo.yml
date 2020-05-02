@@ -12,11 +12,14 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '12.15.0'
+    versionSpec: '10.17.0'
+    checkLatest: true
   displayName: 'Install Node.js'
-
 - script: |
-    cd /home/vsts/work/_temp/
+    npm install -g typescript
+    npm install -g @angular/cli   
+    cd ToDoApp
     npm install
-    npm run build
+    npm update
+    ng build --prod
   displayName: 'npm install and build'
